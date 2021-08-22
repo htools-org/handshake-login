@@ -1,0 +1,88 @@
+{
+  "name": "handshake-login",
+  "version": "0.1.0",
+  "description": "A library for authentication with Handshake names, used by validating servers and identity managers.",
+  "license": "MIT",
+  "main": "build/main/index.js",
+  "typings": "build/main/index.d.ts",
+  "module": "build/module/index.js",
+  "repository": "git://github.com/rithvikvibhu/handshake-login.git",
+  "homepage": "https://github.com/rithvikvibhu/handshake-login",
+  "bugs": {
+    "url": "https://github.com/rithvikvibhu/handshake-login/issues"
+  },
+  "keywords": [
+    "hns",
+    "handshake",
+    "authentication",
+    "library"
+  ],
+  "author": "Rithvik Vibhu <rithvikvibhu@gmail.com>",
+  "scripts": {
+    "build": "run-p build:*",
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json",
+    "test": "run-s build test:*",
+    "test:lint": "eslint src --ext .ts",
+    "test:prettier": "prettier \"src/**/*.ts\" --list-different",
+    "test:unit": "nyc --silent bmocha build/main/lib/**/*.spec.js",
+    "watch:build": "tsc -p tsconfig.json -w",
+    "watch:test": "nyc --silent bmocha build/main/lib/**/*.spec.js --watch",
+    "cov": "run-s build test:unit cov:html cov:lcov",
+    "cov:html": "nyc report --reporter=html",
+    "cov:lcov": "nyc report --reporter=lcov",
+    "cov:send": "run-s cov:lcov && codecov",
+    "cov:check": "nyc report && nyc check-coverage --lines 100 --functions 100 --branches 100",
+    "doc": "run-s doc:html",
+    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
+    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "dohjs": "^0.3.2"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^15.14.7",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "bmocha": "^2.1.5",
+    "browser-env": "^3.3.0",
+    "chai": "^4.3.4",
+    "codecov": "^3.5.0",
+    "eslint": "^7.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-functional": "^3.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "gh-pages": "^3.1.0",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "prettier": "^2.1.1",
+    "ts-node": "^9.0.0",
+    "typedoc": "^0.19.0",
+    "typescript": "^4.0.2"
+  },
+  "files": [
+    "build/main",
+    "build/module",
+    "!**/*.spec.*",
+    "!**/*.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "prettier": {
+    "singleQuote": true
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  }
+}
