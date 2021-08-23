@@ -13,8 +13,8 @@ const SAMPLE_CALLBACK_URL = 'https://localhost/callback';
 const SAMPLE_GOOD_PREFIX = '96db667ab20b4f00';
 const SAMPLE_BAD_PREFIX = 'badprefix';
 const SAMPLE_GOOD_FINGERPRINT =
-  '24efc518243958b8c61ad86d21c9ff6df1d43f4bcee79c51c8eab92253f16be3';
-const SAMPLE_BAD_FINGERPRINT = 'badfingerprint1';
+  '9f22098557aacc83fd3d7d2f4bf203d4b1fd3006d7dcf26adec1f186f48efc14';
+const SAMPLE_BAD_FINGERPRINT = 'badfingerprint';
 
 describe('Handshake Login', function () {
   const hLogin = new HandshakeLogin();
@@ -37,7 +37,7 @@ describe('Handshake Login', function () {
             name: domain,
             type: 'TXT',
             value:
-              'v=0;fingerprint=24efc518243958b8c61ad86d21c9ff6df1d43f4bcee79c51c8eab92253f16be3',
+              'v=0;fingerprint=9f22098557aacc83fd3d7d2f4bf203d4b1fd3006d7dcf26adec1f186f48efc14',
           },
         ],
         'badprefix._auth.example': null,

@@ -1,6 +1,7 @@
 // https://github.com/namebasehq/handshake-id-manager/blob/master/src/services/DeviceService/index.ts
 
 import {
+  calculateFingerprint,
   encodeBase64,
   exportCryptoKey,
   exportPrivateCryptoKey,
@@ -217,6 +218,13 @@ export class LocalStorageStrategy extends AbstractStrategy {
    */
   async getFingerprint(): Promise<string> {
     if (!this.resData?.publicKey) throw new Error('Public Key not set.');
-    return hash(this.resData.publicKey);
+    let pubKey: CryptoKey;
+    try {
+      pubKey = await cryptography.importCryptoKey(this.resData.publicKey);
+    } catch (error) {
+      console.error(error);
+      throw new Error('Could not import invalid public key.');
+    }
+    return calculateFingerprint(pubKey);
   }
 }

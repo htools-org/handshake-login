@@ -73,7 +73,7 @@ export async function hash(text: string): Promise<string> {
   const textEncoder = new TextEncoder();
   const fingerprint = await SubtleCrypto.digest(
     'SHA-256',
-    textEncoder.encode(encodeBase64(text))
+    textEncoder.encode(text)
   );
   const hashArray = Array.from(new Uint8Array(fingerprint));
   const hashHex = hashArray
@@ -107,8 +107,11 @@ export async function exportCryptoKey(key: CryptoKey): Promise<string> {
 }
 
 export async function calculateFingerprint(key: CryptoKey): Promise<string> {
-  const exported = await SubtleCrypto.exportKey('spki', key);
-  const fingerprint = await SubtleCrypto.digest('SHA-256', exported);
+  const exportedKey = await exportCryptoKey(key);
+  const fingerprint = await SubtleCrypto.digest(
+    'SHA-256',
+    encodeText(exportedKey)
+  );
   const hashArray = Array.from(new Uint8Array(fingerprint));
   const hashHex = hashArray
     .map((b) => b.toString(16).padStart(2, '0'))

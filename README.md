@@ -64,7 +64,7 @@ Check out this [identity manager](https://github.com/rithvikvibhu/modular-id-man
 
 ## Documentation
 
-Generated documentation (with TypeDoc) is available at TODO.
+Generated documentation (with TypeDoc) is available at https://rithvikvibhu.github.io/handshake-login/.
 
 ## Running Tests
 
