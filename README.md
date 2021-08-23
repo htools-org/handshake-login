@@ -17,7 +17,7 @@ A (fully-typed) JavaScript library for authentication with Handshake names, for 
 This library is used in an example Express server ([repo](https://github.com/rithvikvibhu/sample-hs-login-server)).
 Try it out at https://sample-hs-login-server.herokuapp.com/.
 
-It is also used in an [identity manager](https://github.com/rithvikvibhu/modular-id-manager).
+It is also used in an [identity manager](https://github.com/rithvikvibhu/htools-id-manager).
 
 ## Installation
 
@@ -42,7 +42,7 @@ To add Login With Handshake to your website, only 2 main methods are needed: one
 const hLogin = new HandshakeLogin();
 const requestUrl = await hLogin.generateRequestUrl({
   domain: 'example',
-  challenge: 'randomly-generated-challenge-keep--track-server-side',
+  challenge: 'randomly-generated-challenge---keep-track-server-side',
   callbackUrl: 'http://localhost:3000/callback',
 });
 // Redirect to requestUrl
@@ -60,7 +60,7 @@ Check out this [example Express server](https://github.com/rithvikvibhu/sample-h
 ### Identity Managers / Other Use Cases
 
 Documentation is generated and explains all public methods.
-Check out this [identity manager](https://github.com/rithvikvibhu/modular-id-manager) for how the different methods can be used.
+Check out this [identity manager](https://github.com/rithvikvibhu/htools-id-manager) for how the different methods can be used.
 
 ## Documentation
 

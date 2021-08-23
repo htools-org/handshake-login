@@ -298,7 +298,7 @@ export class HandshakeLogin {
       domain: encodeBase64(this.domain), // b64
       deviceId: encodeBase64(this.prefix), // str => b64
       publicKey: encodeBase64(this.identity.publicKey), // str => b64
-      strategy: encodeBase64(this.strategy.constructor.name),
+      strategy: encodeBase64(this.strategy.strategyName),
       ...(await this.strategy.generateSignatureData()),
     };
     return data;

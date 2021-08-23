@@ -2,6 +2,7 @@
 
 import {
   arrayBufferToString,
+  calculateFingerprint,
   decodeBase64,
   encodeBase64,
   exportCryptoKey,
@@ -17,6 +18,7 @@ import { importCryptoKey, verifySignature } from './cryptography';
  * WebAuthn Strategy
  */
 export class WebAuthnStrategy extends AbstractStrategy {
+  readonly strategyName = 'WebAuthnStrategy';
   domain: string;
   identity: Identity;
   reqData: RequestData;
@@ -308,6 +310,14 @@ export class WebAuthnStrategy extends AbstractStrategy {
    */
   async getFingerprint(): Promise<string> {
     if (!this.resData?.publicKey) throw new Error('Public Key not set.');
-    return hash(this.resData.publicKey);
+
+    let pubKey: CryptoKey;
+    try {
+      pubKey = await importCryptoKey(this.resData.publicKey);
+    } catch (error) {
+      console.error(error);
+      throw new Error('Could not import invalid public key.');
+    }
+    return calculateFingerprint(pubKey);
   }
 }

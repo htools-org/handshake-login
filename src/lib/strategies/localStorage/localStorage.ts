@@ -16,6 +16,7 @@ import * as store from './store';
  * Local Storage Strategy
  */
 export class LocalStorageStrategy extends AbstractStrategy {
+  readonly strategyName = 'LocalStorageStrategy';
   storageKey: string;
   reqData: RequestData;
   resData: ResponseData;
@@ -218,6 +219,7 @@ export class LocalStorageStrategy extends AbstractStrategy {
    */
   async getFingerprint(): Promise<string> {
     if (!this.resData?.publicKey) throw new Error('Public Key not set.');
+
     let pubKey: CryptoKey;
     try {
       pubKey = await cryptography.importCryptoKey(this.resData.publicKey);

@@ -3,6 +3,7 @@
  * An abstract class that other strategies inherit
  */
 export abstract class AbstractStrategy {
+  abstract readonly strategyName: string;
   abstract domain: string;
   abstract identity: Identity;
 
