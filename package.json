@@ -1,6 +1,6 @@
 {
   "name": "handshake-login",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A library for authentication with Handshake names, used by validating servers and identity managers.",
   "license": "MIT",
   "main": "build/main/index.js",
