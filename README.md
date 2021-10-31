@@ -1,6 +1,6 @@
 # Handshake Login
 
-[![npm](https://img.shields.io/npm/v/handshake-login)](https://www.npmjs.com/package/handshake-login) [![License](https://img.shields.io/npm/l/handshake-login)](https://github.com/rithvikvibhu/handshake-login/blob/master/LICENSE) [![Codecov](https://img.shields.io/codecov/c/github/rithvikvibhu/handshake-login)]() [![GitHub issues](https://img.shields.io/github/issues/rithvikvibhu/handshake-login)](https://github.com/rithvikvibhu/handshake-login/issues)
+[![npm](https://img.shields.io/npm/v/handshake-login)](https://www.npmjs.com/package/handshake-login) [![License](https://img.shields.io/npm/l/handshake-login)](https://github.com/htools-org/handshake-login/blob/master/LICENSE) [![Codecov](https://img.shields.io/codecov/c/github/rithvikvibhu/handshake-login)]() [![GitHub issues](https://img.shields.io/github/issues/rithvikvibhu/handshake-login)](https://github.com/htools-org/handshake-login/issues)
 
 A (fully-typed) JavaScript library for authentication with Handshake names, for use by validating servers (websites) and identity managers.
 
@@ -14,10 +14,10 @@ A (fully-typed) JavaScript library for authentication with Handshake names, for 
 
 ## Demo
 
-This library is used in an example Express server ([repo](https://github.com/rithvikvibhu/sample-hs-login-server)).
+This library is used in an example Express server ([repo](https://github.com/htools-org/sample-hs-login-server)).
 Try it out at https://sample-hs-login-server.herokuapp.com/.
 
-It is also used in an [identity manager](https://github.com/rithvikvibhu/htools-id-manager).
+It is also used in an [identity manager](https://github.com/htools-org/htools-id-manager).
 
 ## Installation
 
@@ -55,12 +55,12 @@ const verified = await hLogin.verifyResponseData(req.session.challenge);
 // That's it!
 ```
 
-Check out this [example Express server](https://github.com/rithvikvibhu/sample-hs-login-server) for a compelete example.
+Check out this [example Express server](https://github.com/htools-org/sample-hs-login-server) for a compelete example.
 
 ### Identity Managers / Other Use Cases
 
 Documentation is generated and explains all public methods.
-Check out this [identity manager](https://github.com/rithvikvibhu/htools-id-manager) for how the different methods can be used.
+Check out this [identity manager](https://github.com/htools-org/htools-id-manager) for how the different methods can be used.
 
 ## Documentation
 
@@ -121,3 +121,5 @@ npm run test
 - [Namebase Developer docs](https://docs.namebase.io/handshake-login/oidc) for the concept
 - [Namebase ID Manager](https://github.com/namebasehq/handshake-id-manager) for code reference and the first strategy
 - [@Falci's gist](https://gist.github.com/Falci/8e12be1b9538c4521a3d312a02e4682d) for basic functions and simplified flow
+
+**Proudly supported by [HandyOSS](https://github.com/HandyOSS/HandyGrants).**
